@@ -1,0 +1,6 @@
+{
+  "name": "Word Spy",
+  "description": "Zero-login, single-device pass-and-play social deduction party game for 3 to 15 players.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

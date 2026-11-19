@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: #FFFFFF;
+  --color-surface: #F3F5F8;
+  --color-surface-hover: #E9EDF3;
+  --color-border: #E5E7EB;
+  --color-ink: #0D0F12;
+  --color-ink-muted: #5C6470;
+  --color-coral: #FA362A;
+  --color-coral-hover: #E4281D;
+  --color-switch: #1D7BF2;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: #FFFFFF;
+  color: #0D0F12;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tactile 3D Card Flip */
+.perspective-1000 {
+  perspective: 1100px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Smooth fade-up entrance for screen transitions */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner {
+    transition: opacity 180ms ease;
+    transform-style: flat;
+  }
+
+  .flip-card-inner.is-flipped {
+    transform: none;
+  }
+
+  .flip-card-back {
+    transform: none;
+  }
+
+  .animate-fade-up {
+    animation: none;
+  }
+}
